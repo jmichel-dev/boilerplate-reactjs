@@ -12,7 +12,7 @@ module.exports = {
       directory: path.resolve(__dirname, "public"),
     },
   },
-  entry: path.resolve(__dirname, "src", "index.jsx"),
+  entry: path.resolve(__dirname, "src", "index.tsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -24,12 +24,12 @@ module.exports = {
     }),
   ].filter(Boolean),
   resolve: {
-    extensions: [".jsx", ".js"],
+    extensions: [".jsx", ".js", ".ts", ".tsx"],
   },
   module: {
     rules: [
       {
-        test: /\.jsx$/, // This is to verify if the file has the format jsx
+        test: /\.(j|t)sx$/, // This is to verify if the file has the format jsx
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
